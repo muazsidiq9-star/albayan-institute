@@ -252,7 +252,7 @@ body {
   max-width: 650px;
   color: var(--muted);
   margin-bottom: 40px;
-  text-align: center;
+  text-align: left;
 }
 
 /* =========================
@@ -396,6 +396,126 @@ body {
   margin-top: 20px;
 }
 
+/* ============================================================
+   PLAN HIGHLIGHT BOX
+============================================================ */
+
+.plan-highlight{
+  margin-top: 28px;
+  margin-bottom: 28px;
+
+  padding: 24px;
+  border-radius: var(--card-radius);
+
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.plan-highlight h3{
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.plan-highlight p{
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.plan-schedule{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  margin-top: 22px;
+  margin-bottom: 20px;
+}
+
+.schedule-item{
+  padding: 18px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+
+  transition: 0.3s ease;
+}
+
+.schedule-item:hover{
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+
+.schedule-item span{
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.schedule-item strong{
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.plan-note{
+  margin-top: 10px;
+}
+
+/* Premium version */
+
+.premium-highlight{
+  border: 1px solid rgba(212,175,55,0.25);
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 768px){
+
+  .plan-schedule{
+    grid-template-columns: 1fr;
+  }
+
+  .plan-highlight{
+    padding: 18px;
+  }
+
+  .plan-highlight h3{
+    font-size: 19px;
+  }
+
+}
+
+/* ============================================================
+   LIGHT MODE
+============================================================ */
+
+body.light-mode .plan-highlight{
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode .schedule-item{
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode .schedule-item strong{
+  color: #111827;
+}
+
+body.light-mode .plan-highlight h3{
+  color: #111827;
+}
+
+body.light-mode .plan-highlight p,
+body.light-mode .schedule-item span{
+  color: #4b5563;
+}
 /* =========================
    FINAL CTA
 ========================= */
@@ -416,7 +536,7 @@ body {
 }
 
 .cta-box h2 {
-  font-size: 42px;
+  font-size: 40px;
   line-height: 1.2;
   color: var(--gold);
   margin: 20px 0;
@@ -554,7 +674,8 @@ body {
   margin-top: 18px;
   color: var(--muted);
   line-height: 1.7;
-  text-align: justify;
+  text-align: center;
+  font-style: italic;
 }
 
 .secure-payment-text {
@@ -616,7 +737,7 @@ body {
 }
 
 .class-modal-content h2 {
-  font-size: 32px;
+  font-size: 30px;
   color: var(--gold);
   margin-bottom: 12px;
 }
@@ -672,6 +793,12 @@ body {
   color: var(--muted);
   line-height: 1.7;
   font-size: 14px;
+}
+
+.center-btn{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 /* =========================
@@ -776,16 +903,17 @@ body {
 
 .story-card h2{
   color:var(--gold);
-  font-size:38px;
+  font-size:30px;
   margin-bottom:24px;
   line-height:1.2;
+  text-align: center;
 }
 
 .story-card p{
   color:var(--text);
   line-height:1.8;
   margin-bottom:18px;
-  text-align: justify;
+  text-align: center;
 }
 
 /* mobile */
@@ -801,7 +929,7 @@ body {
   }
 
   .story-card h2{
-    font-size:30px;
+    font-size:28px;
   }
 
 }
@@ -817,7 +945,7 @@ body {
 .mental-blocks h2 {
   max-width: 800px;
   margin: 0 auto 40px;
-  font-size: 32px;
+  font-size: 30px;
   color: var(--gold);
 }
 
@@ -853,7 +981,7 @@ body {
 }
 
 .payment-testimonials h2 {
-  font-size: 32px;
+  font-size: 30px;
   color: var(--gold);
   margin-bottom: 40px;
 }
@@ -1063,10 +1191,10 @@ body {
   }
 
   .payment-submit-section h2 {
-    font-size: 22px;
+    font-size: 28px;
   }
   .payment-submit-section h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -1274,7 +1402,7 @@ body {
 @media (max-width: 768px) {
 
   .payment-hero h1 {
-    font-size: 36px;
+    font-size: 30px;
   }
 
   .offer-card {
@@ -1287,7 +1415,7 @@ body {
   }
 
   .pricing-box h3 {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .cta-box {
@@ -1295,7 +1423,7 @@ body {
   }
 
   .cta-box h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .trust-row span {

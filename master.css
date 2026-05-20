@@ -68,6 +68,8 @@ body {
   overflow-x:    hidden;
   /* Clamp body so nothing can push it wider than the viewport */
   max-width:     100vw;
+  /* Offset the fixed navbar so content is never hidden behind it */
+  padding-top:   72px;
 }
 
 img {
@@ -300,16 +302,15 @@ small {
 ============================================================ */
 
 .navbar {
-  position:       sticky;
-  top:            0;
-  z-index:        9999;
-  background:     #070707;
-  border-bottom:  1px solid var(--border);
+  position:        fixed;       /* stays at top on ALL scroll, all devices */
+  top:             0;
+  left:            0;
+  width:           100%;        /* full viewport width */
+  z-index:         9999;
+  background:      #070707;
+  border-bottom:   1px solid var(--border);
   backdrop-filter: blur(12px);
-  /* prevent navbar from ever being wider than viewport */
-  width:          100%;
-  max-width:      100vw;
-  overflow:       hidden;
+  /* NOTE: no overflow:hidden here — that breaks position:fixed on mobile */
 }
 
 .nav-inner {
@@ -417,6 +418,10 @@ small {
   .cta-btn {
     padding:   8px 12px;
     font-size: 12px;
+  }
+  /* Navbar is slightly shorter on mobile — adjust body offset */
+  body {
+    padding-top: 70px;
   }
 }
 
@@ -1310,6 +1315,138 @@ body.light-mode .contact-form textarea {
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+/* ============================================================
+   HOW TO GET STARTED STYLING
+============================================================ */
+
+.step-box{
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 18px;
+  margin-bottom: 18px;
+  transition: 0.3s ease;
+}
+
+.step-box:hover{
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.step-box h4{
+  font-size: 18px;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.step-box p{
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Registration Steps */
+
+.steps-guide{
+  margin-top: 28px;
+}
+
+.steps-guide h3{
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.steps-guide ul{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 0;
+}
+
+.steps-guide li{
+  list-style: none;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+
+  padding: 14px 16px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+
+  transition: 0.25s ease;
+}
+
+.steps-guide li:hover{
+  border-color: var(--border-strong);
+  transform: translateX(4px);
+}
+
+.steps-guide strong{
+  color: var(--gold);
+}
+
+/* Optional button spacing */
+
+.contact-info .btn{
+  margin-top: 24px;
+  width: fit-content;
+}
+
+/* ============================================================
+   LIGHT MODE
+============================================================ */
+
+body.light-mode .step-box{
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode .step-box p{
+  color: #374151;
+}
+
+body.light-mode .step-box h4{
+  color: #111827;
+}
+
+body.light-mode .steps-guide h3{
+  color: #111827;
+}
+
+body.light-mode .steps-guide li{
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #1f2937;
+}
+
+body.light-mode .steps-guide strong{
+  color: #0f172a;
+}
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 768px){
+
+  .step-box{
+    padding: 16px;
+  }
+
+  .steps-guide li{
+    padding: 13px 14px;
+    font-size: 14px;
+  }
+
+  .step-box h4,
+  .steps-guide h3{
+    font-size: 17px;
+  }
+
+}
 
 /* ============================================================
    20. SELECT DROPDOWN — global fix
@@ -1683,7 +1820,7 @@ body.light-mode select option {
 ============================================================ */
 
 body.light-mode .navbar {
-  background: #f8f8f8;
+  background: rgba(248, 248, 248, 0.95);
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
